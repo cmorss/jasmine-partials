@@ -38,7 +38,7 @@ Will get this mess cleaned up via:
 ``` ruby
     # Need to create a JasminePartial::Plugin::Rack class.
     Rails.configuration.middleware.use(JasminePartial::Plugin::Rack)
-```
+```  
 
 ... but until then you need this mess in your apache httpd.conf and you hit localhost/jasmine
 to run your tests:
