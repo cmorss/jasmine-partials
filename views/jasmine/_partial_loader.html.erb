@@ -1,0 +1,18 @@
+<%
+  helpers.each do |helper|
+    extend helper.constantize
+  end
+%>
+
+<% if builder.present? %>
+  <% object_name = builder['args'].first %>
+  <% arg = object_name =~ /^:/ ? :"#{object_name[1..-1]}" : mocks[object_name] %>
+
+  <% send(builder['method'], arg) do |b| %>
+    <%= render :partial => partial_path,
+            :locals => {:"#{builder['name']}" => b}.merge(mocks) %>
+  <% end %>
+
+<% else %>
+  <%= render :partial => partial_path, :locals => mocks %>
+<% end %>

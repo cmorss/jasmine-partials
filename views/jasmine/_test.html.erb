@@ -1,0 +1,32 @@
+
+<div id="monkey">
+  <h1><%= pig if defined?(pig) %></h1>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+    deserunt mollit anim id est laborum.
+  </p>
+
+  <h2><%= bed.room if defined?(bed)%></h2>
+
+  <pre>
+
+  </pre>
+  <h3><%= dom_id(target, 'prefix') if defined?(target) %></h3>
+
+  <h4><%= target.integer.inspect if defined?(target) && target.respond_to?(:integer)%></h4>
+
+  <% if defined?(dictionary) && dictionary.present? %>
+    <% dictionary.entry(:foo) do %>
+      <div id="builder-div">Monkeys</div>
+    <% end %>
+  <% end %>
+
+  <% if defined?(class_mock) && class_mock.present? %>
+      <div id="class-mock"><%= String.do_it %></div>
+  <% end %>
+
+</div>
