@@ -33,6 +33,26 @@ Add the partials.js file to your jasmine spec helpers directory.
 Mostly you'll want to use the dom_id extension (see usage below). Add the method_chain method
 from the application_helper.rb file.
 
+Will get this mess cleaned up via:
+
+``` ruby
+    # Need to create a JasminePartial::Plugin::Rack class.
+    Rails.configuration.middleware.use(JasminePartial::Plugin::Rack)
+```
+
+... but until then you need this mess in your apache httpd.conf and you hit localhost/jasmine
+to run your tests:
+
+```
+ProxyPass /jasmine http://127.0.0.1:8888
+ProxyPass /__spec__ http://127.0.0.1:8888/__spec__
+ProxyPass /__JASMINE_ROOT__ http://127.0.0.1:8888/__JASMINE_ROOT__
+ProxyPass /public/ http://127.0.0.1:8888/public/
+```
+
+ProxyPass / http://127.0.0.1:3000/
+
+
 Usage
 -----
 
